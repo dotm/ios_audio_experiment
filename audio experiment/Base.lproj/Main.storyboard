@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,11 +13,78 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="audio_experiment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fVd-yk-abZ">
+                                <rect key="frame" x="143.5" y="50" width="88" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgw-JI-vM3">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                        <state key="normal" title="Play BGM"/>
+                                        <connections>
+                                            <action selector="playBGM:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rMN-M0-CEE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ypk-jD-lzz">
+                                        <rect key="frame" x="0.0" y="30" width="88" height="30"/>
+                                        <state key="normal" title="Pause BGM"/>
+                                        <connections>
+                                            <action selector="pauseBGM:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xHr-Re-TS3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LL-Gm-ZsA">
+                                        <rect key="frame" x="0.0" y="60" width="88" height="30"/>
+                                        <state key="normal" title="Rewind BGM"/>
+                                        <connections>
+                                            <action selector="rewindBGM:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OaO-AG-5GP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dwd-Ob-5CA">
+                                <rect key="frame" x="119.5" y="180" width="136" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVG-Dk-w8V">
+                                        <rect key="frame" x="37.5" y="0.0" width="61" height="30"/>
+                                        <state key="normal" title="Play SFX"/>
+                                        <connections>
+                                            <action selector="playSFX:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u4h-Ph-lyM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viU-rW-Vxg">
+                                        <rect key="frame" x="0.0" y="30" width="136" height="30"/>
+                                        <state key="normal" title="Play SFX with Delay"/>
+                                        <connections>
+                                            <action selector="playSFX_withDelay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KCJ-qx-7d4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26t-dq-les">
+                                        <rect key="frame" x="35" y="60" width="66" height="30"/>
+                                        <state key="normal" title="Loop SFX"/>
+                                        <connections>
+                                            <action selector="loopSFX:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IR7-0s-Gyh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJl-Sh-HxA">
+                                        <rect key="frame" x="36" y="90" width="64" height="30"/>
+                                        <state key="normal" title="Stop SFX"/>
+                                        <connections>
+                                            <action selector="stopSFX:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F8g-AJ-QvC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dwd-Ob-5CA" firstAttribute="top" secondItem="fVd-yk-abZ" secondAttribute="bottom" constant="40" id="5og-uS-Ixq"/>
+                            <constraint firstItem="fVd-yk-abZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="Mhf-db-rIf"/>
+                            <constraint firstItem="fVd-yk-abZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hnz-nT-NLc"/>
+                            <constraint firstItem="dwd-Ob-5CA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rKp-cz-Z1P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

@@ -11,13 +11,45 @@ import AVFoundation
 
 class ViewController: UIViewController {
     var bgmPlayer: AVAudioPlayer!
-
+    var sfxPlayer: AVAudioPlayer!
+    
+    @IBAction func playBGM(_ sender: UIButton) {
+        bgmPlayer.play()
+    }
+    @IBAction func pauseBGM(_ sender: UIButton) {
+        bgmPlayer.stop()
+    }
+    @IBAction func rewindBGM(_ sender: UIButton) {
+        bgmPlayer.currentTime = 0
+    }
+    
+    @IBAction func playSFX(_ sender: UIButton) {
+        sfxPlayer.numberOfLoops = 0
+        sfxPlayer.currentTime = 0
+        sfxPlayer.play()
+    }
+    @IBAction func playSFX_withDelay(_ sender: UIButton) {
+        sfxPlayer.numberOfLoops = 0
+        sfxPlayer.currentTime = 0
+        sfxPlayer.play(atTime: sfxPlayer.deviceCurrentTime + 3)
+    }
+    @IBAction func loopSFX(_ sender: UIButton) {
+        sfxPlayer.numberOfLoops = -1
+        sfxPlayer.play()
+    }
+    @IBAction func stopSFX(_ sender: UIButton) {
+        sfxPlayer.numberOfLoops = 0
+        sfxPlayer.stop()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print(999)
         loadPlayerForBGM()
         bgmPlayer.play()
+        
+        loadPlayerForSoundEffect()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,10 +67,18 @@ class ViewController: UIViewController {
             bgmPlayer = try AVAudioPlayer(data: backgroundMusicData, fileTypeHint: AVFileType.mp3.rawValue)
             /* iOS 10 and earlier require the following line:
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
-        } catch let error {
+        } catch {
             print(error.localizedDescription)
         }
     }
 
+    func loadPlayerForSoundEffect(){
+        guard let soundEffectData = NSDataAsset(name: "sound")?.data else { return }
+        do {
+            sfxPlayer = try AVAudioPlayer(data: soundEffectData, fileTypeHint: AVFileType.mp3.rawValue)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 

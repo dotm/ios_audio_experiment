@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     }
     @IBAction func loopSFX(_ sender: UIButton) {
         sfxPlayer.numberOfLoops = -1
+        sfxPlayer.currentTime = 0
         sfxPlayer.play()
     }
     @IBAction func stopSFX(_ sender: UIButton) {
@@ -50,11 +51,6 @@ class ViewController: UIViewController {
         bgmPlayer.play()
         
         loadPlayerForSoundEffect()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func loadPlayerForBGM(){

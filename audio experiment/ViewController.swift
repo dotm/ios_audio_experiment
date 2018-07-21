@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playSFX(_ sender: UIButton) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         sfxPlayer.numberOfLoops = 0
         sfxPlayer.currentTime = 0
         sfxPlayer.play()
